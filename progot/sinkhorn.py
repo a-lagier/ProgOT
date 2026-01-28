@@ -2,10 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import jax
-
 import ott
 
-print("ok")
 
 def h(x):
     return np.linalg.norm(x, ord=2, axis=2)

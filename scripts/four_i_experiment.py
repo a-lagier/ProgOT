@@ -5,7 +5,8 @@ from progot.loader.cfg_loader import load_parser
 from progot.solvers import get_solver
 from progot.costs import get_cost
 from progot.loader.data_loader import get_dataset
-from progot.utils import get_uniform_distrib
+from progot.transport_render import render_coupling, render_map
+from progot.utils import mse, move, no_grad
 
 parser = load_parser()
 
@@ -23,25 +24,4 @@ dataset = get_dataset(**dataset_cfg)
 
 torch.manual_seed(seed)
 
-# X = torch.tensor([
-#         [0.0, 0.0],
-#         [0.0, 5.0],
-#         [5.0, 0.0]
-#     ])
-X = torch.randn((5, 2)) * 1e-1
-# Y = torch.tensor([
-#         [1.0, 0.0],
-#         [1.0, 5.0],
-#         [6.0, 0.0]
-#     ])
-Y = torch.randn((5, 2)) * 1e-1 + 1.
-
-eps_D = 1 / 20 * cost_fn(Y, Y).mean()
-
-a, b = get_uniform_distrib(X), get_uniform_distrib(Y)
-
-main_solv.get_epsilons(a, X, b, Y, cost_fn, Y)
-
-C = cost_fn(X, Y)
-f, g, P, T_prog = main_solv.solve(a, X, b, Y, cost_fn)
-print(main_solv.get_objective_value(P, C, eps_D))
+print(dataset.get_data())

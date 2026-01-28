@@ -1,0 +1,26 @@
+out_dir: ./results
+device: cuda:0
+seed: 1
+runs: 1
+cost:
+  name: quadratic
+solver:
+  name: log-sinkhorn
+  K: 2
+  beta_0: 5.0
+  scheduled: False
+  unscheduled_scaling: 0.016
+  sink_solver_name: log-sinkhorn
+  alphas_cfg:
+    mode: decreased-speed
+  taus_cfg:
+    mode: linear
+    start: 0.1
+    end: 0.001
+  epsilon_scalers: [0.1, 0.5, 1, 5, 10, 20]
+dataset:
+  name: sci-plex
+  dataset_dir: ./datasets/
+  d: 32
+  train_sample: 1000
+  test_sample: 100

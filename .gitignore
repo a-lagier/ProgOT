@@ -1,0 +1,5 @@
+Wasserstein/
+datasets/*
+benchmarks/
+results/*
+TODO.md

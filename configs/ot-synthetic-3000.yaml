@@ -1,0 +1,24 @@
+out_dir: ./results
+device: cuda:0
+seed: 1
+runs: 1
+cost:
+  name: quadratic
+solver:
+  name: progot
+  K: 16
+  beta_0: 5.0
+  sink_solver_name: log-sinkhorn
+  alphas_cfg:
+    mode: constant-speed
+  taus_cfg:
+    mode: linear
+    start: 0.1
+    end: 0.001
+  epsilon_scalers: [0.125, 0.25, 0.5, 1, 2, 4, 8]
+dataset:
+  name: synthetic
+  dataset_dir: ./datasets/
+  d: 4
+  train_sample: 3000
+  test_sample: 300

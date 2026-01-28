@@ -1,4 +1,9 @@
 torch
-yaml
+pyyaml
 numpy
+pandas
 matplotlib
+POT
+torchvision
+scikit-learn
+tqdm
