@@ -5,7 +5,7 @@ Reimplementation of ProgOT [[Kassraie et al. 2025]](https://arxiv.org/abs/2406.0
 Create a conda environment by running
 ```
 conda create -n progot python=3.9
-conda activate
+conda activate progot
 pip install -r requirements.txt
 ```
 
